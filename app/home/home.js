@@ -12,17 +12,8 @@ angular.module('myApp.home', ['ngRoute'])
 }])
  
 // // Home controller
-.controller('HomeCtrl', ['$scope', function($scope,$firebaseSimpleLogin) {
-	console.log("test");
-  //var firebase = require("firebase");
-  var config = {
-    apiKey: "AIzaSyDbWVEW9A4NKF85unGhutdEcOBVJ1gfwls",
-    authDomain: "bookstore-a15da.firebaseapp.com",
-    databaseURL: "https://bookstore-a15da.firebaseio.com",
-    storageBucket: "bookstore-a15da.appspot.com",
-    messagingSenderId: "1028660064043"
-  };
-  firebase.initializeApp(config);
+.controller('HomeCtrl', ['$scope', function($scope) {
+  
     $scope.user = {};
 
 	$scope.SignIn = function(e) {
@@ -32,7 +23,10 @@ angular.module('myApp.home', ['ngRoute'])
     
     
      
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(username, password).then(function(user) {
+            // Success callback
+            console.log('Authentication successful');
+        }).catch(function(error) {
   	console.log("failed");
 	});
 }}]);
