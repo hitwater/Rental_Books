@@ -4,7 +4,7 @@ import firebase from 'firebase';
 
 /* @ngInject */
 class LoginController {
-    constructor($scope) {
+    constructor($scope, $state) {
   
     $scope.user = {};
 
@@ -16,6 +16,7 @@ class LoginController {
     firebase.auth().signInWithEmailAndPassword(username, password).then(function(user) {
             // Success callback
             console.log('Authentication successful');
+            $state.go('home');
         }).catch(function(error) {
   	console.log("failed");
 	});
