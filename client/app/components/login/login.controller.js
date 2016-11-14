@@ -1,5 +1,10 @@
-class LoginController{
-    constructor(['$scope', '$location', 'CommonProp', function($scope, $location,CommonProp) {
+'use strict';
+
+import firebase from 'firebase';
+
+/* @ngInject */
+class LoginController {
+    constructor($scope) {
   
     $scope.user = {};
 
@@ -11,12 +16,11 @@ class LoginController{
     firebase.auth().signInWithEmailAndPassword(username, password).then(function(user) {
             // Success callback
             console.log('Authentication successful');
-            CommonProp.setUser(user);
-            $location.path('/welcome');
         }).catch(function(error) {
   	console.log("failed");
 	});
-    }}]);
+    };
+    }
 }
 
 export default LoginController;
