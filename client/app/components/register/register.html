@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
- 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
- 
-    <title>Texas State Online Bookstore</title>
- 
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
-</head>
- 
-<body>
- 
-    <div class="container">
-        <div class="jumbotron" style="padding-bottom:0px;">
+<div class="container">
+        <div class="jumbotron" style="text-align: center;padding-bottom: 0px;">
             <h2>Texas State Online Bookstore</h2>
         </div>
         <form class="form-signin" name="regForm">
@@ -54,11 +39,8 @@
         ng-model="data.selectedOption"></select>
 
             <label class="checkbox">
-                <a href="#/home"> Sign In<a/>
+                <a href="/login"> Sign In<a/>
         </label>
         <button type="button" ng-click="signUp();" ng-disabled="!user.email || !user.password" class="btn btn-lg btn-primary btn-block">Register</button>
       </form>
- 
-    </div>
- 
-</body></html>
+</div>
