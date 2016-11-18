@@ -4,7 +4,7 @@ import firebase from 'firebase';
 
 /* @ngInject */
 class RegisterController {
-  constructor($scope) {
+  constructor($scope, $state) {
     $scope.data = {
     availableOptions: [
       {id: 'visa', name: 'Visa'},
@@ -41,7 +41,7 @@ class RegisterController {
                             'billingAddress':billingAddress,
                             'name': name
                         });
-                        $location.path("/home");
+                        $state.go('login');
                     }, function(error) {
                         $scope.regError = true;
                         $scope.regErrorMessage = error.message;
