@@ -6,6 +6,28 @@ import AppComponent from './app.component';
 import firebase from 'firebase';
 import 'normalize.css';
 
+function shoppingCart(cartName) {
+    this.cartName = cartName;
+    this.clearCart = false;
+    this.checkoutParameters = {};
+    this.items = [];
+
+    // load items from local storage when initializing
+    // this.loadItems();
+
+    // save items to local storage when unloading
+    var self = this;
+/*
+    $(window).unload(function () {
+        if (self.clearCart) {
+            self.clearItems();
+        }
+        self.saveItems();
+        self.clearCart = false;
+    });
+*/
+}
+
 angular.module('app', [
     uiRouter,
     Common,
@@ -26,6 +48,11 @@ angular.module('app', [
     firebase.initializeApp(config);
   })
 
+  .value('foo', 'foo')
+
+  .factory('foobar', function(){
+    return 'foo';
+  })
   .service('onlineStore', ['Product', function(Product){
 
       this.products=Product.query();
@@ -40,6 +67,14 @@ angular.module('app', [
 
   }])
 
+  .factory('Product', function(){
+    // return $resource('json/:productId.json', {},
+    // {
+    //   query: {method:'GET', params:{productId:"productList"}, isArray:true}
+    // });
+    return {query:function(){}};
+  })
+
   .factory("DataService", ["onlineStore",function (onlineStore) {
     // create store
     var myStore = onlineStore;
@@ -52,7 +87,7 @@ angular.module('app', [
     // shopping cart with PayPal, you have to create a merchant account with
     // PayPal. You can do that here:
     // https://www.paypal.com/webapps/mpp/merchant
-    myCart.addCheckoutParameters("PayPal", "paypaluser@youremail.com");
+    // myCart.addCheckoutParameters("PayPal", "paypaluser@youremail.com");
 
     // return data object with store and cart
     return {
@@ -60,5 +95,7 @@ angular.module('app', [
         cart: myCart
     };
   }])
+
+
 
   .component('app', AppComponent);
