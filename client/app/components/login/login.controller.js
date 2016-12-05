@@ -2,8 +2,8 @@
 
 import firebase from 'firebase';
 
-/* @ngInject */
 class LoginController {
+    /* @ngInject */
     constructor($scope, $state, CommonProp) {
 
     $scope.user = {};
@@ -16,19 +16,20 @@ class LoginController {
     e.preventDefault();  // To prevent form refresh
     var username = $scope.user.email;
     var password = $scope.user.password;
-
     firebase.auth().signInWithEmailAndPassword(username, password).then(function(user) {
             // Success callback
             console.log('Authentication successful');
             //Store in local storage:
             //window.localStorage.setItem('foo','bar');
             //window.localStorage.getItem('foo');
-				//window.localStorage.removeItem('foo');
+                //window.localStorage.removeItem('foo');
             CommonProp.setUser(user);
             $state.go('bookstore');
+            return;
         }).catch(function(error) {
-  	console.log("failed");
-	});
+    console.log("failed");
+    console.log(error);
+    });
     };
     }
 }

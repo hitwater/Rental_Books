@@ -1,5 +1,6 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import uiBootstrap from 'angular-ui-bootstrap'
 import ngResource from 'angular-resource';
 import Common from './common/common';
 import Components from './components/components';
@@ -11,8 +12,10 @@ angular.module('app', [
     uiRouter,
     Common,
     Components,
-    ngResource
+    ngResource,
+    uiBootstrap
   ])
+
   .config(($locationProvider) => {
     "ngInject";
     // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions

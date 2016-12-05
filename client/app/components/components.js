@@ -1,5 +1,4 @@
 import angular from 'angular';
-import Home from './home/home';
 import About from './about/about';
 import Login from './login/login';
 import Register from './register/register';
@@ -8,9 +7,9 @@ import BookstoreHeader from './bookstoreheader/bookstoreheader';
 import DataServiceModule from './DataService/DataService';
 import OnlineStoreService from './onlineStore/onlineStore';
 import ProductFactory from './Product/Product';
+import FirebaseFactory from './Firebase/Firebase';
 
 let componentModule = angular.module('app.components', [
-  Home,
   About,
   Login,
   Register,
@@ -18,7 +17,8 @@ let componentModule = angular.module('app.components', [
   BookstoreHeader,
   DataServiceModule,
   OnlineStoreService,
-  ProductFactory
+  ProductFactory,
+  FirebaseFactory
 ])
 
 .name;

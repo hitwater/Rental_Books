@@ -10,11 +10,12 @@ class BookstoreController {
 		$scope.cart = DataService.cart;
 		$scope.store.name = "Tom";
 		console.log(foobar);
+
 		// use routing to pick the selected product
 		// if ($routeParams.productId != null) {
 		// 	$scope.product = $scope.store.getProduct($routeParams.productId);
 		// }
-	$scope.user = CommonProp.getUser();
+		$scope.user = CommonProp.getUser();
 
 	}
 
