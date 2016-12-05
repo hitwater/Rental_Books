@@ -1,5 +1,6 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngResource from 'angular-resource';
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
@@ -31,7 +32,8 @@ function shoppingCart(cartName) {
 angular.module('app', [
     uiRouter,
     Common,
-    Components
+    Components,
+    ngResource
   ])
   .config(($locationProvider) => {
     "ngInject";
@@ -67,13 +69,13 @@ angular.module('app', [
 
   }])
 
-  .factory('Product', function(){
-    // return $resource('json/:productId.json', {},
-    // {
-    //   query: {method:'GET', params:{productId:"productList"}, isArray:true}
-    // });
+  .factory('Product',['$resource', function($resource) {
+    return $resource('json/:productId.json', {},
+    {
+      query: {method:'GET', params:{productId:"productList"}, isArray:true}
+    });
     return {query:function(){}};
-  })
+  }])
 
   .factory("DataService", ["onlineStore",function (onlineStore) {
     // create store

@@ -1,0 +1,141 @@
+[
+  {
+    "id":"book01",
+    "name": "Behavioral Books",
+    "description": "Best books help you pass the exam.",
+    "price": 22.90,
+    "screenshot": "img/orange-01.jpeg",
+    "produce":"Australia",
+    "availability":true,
+    "shine": 8,
+    "rarity": 7,
+    "color": "#CCC",
+    "faces": 14,
+    "images": [
+      "img/orange-01.jpeg",
+      "img/orange-011.jpeg",
+      "img/orange-012.jpeg"
+    ],
+    "reviews": [{
+      "stars":5,
+      "body":"Always enjoy book",
+      "author":"123@example.com"
+      }]
+  },
+  {
+    "id":"book02",
+    "name": "History Books",
+    "description": "Learn more when you own the book",
+    "price": 22.90,
+    "screenshot": "img/grape-01.jpg",
+    "produce":"Australia",
+    "availability":true,
+    "shine": 8,
+    "rarity": 7,
+    "color": "#CCC",
+    "faces": 14,
+    "images": [
+      "img/grape-01.jpg",
+      "img/grape-011.jpg",
+      "img/grape-012.jpg"
+
+    ],
+    "reviews": [{
+      "stars":5,
+      "body":"Always enjoy book",
+      "author":"413@example.com"
+      }]
+  },
+  {
+    "id":"book03",
+    "name": "Computer Science Books",
+    "description": "Best books help you pass the exam.",
+    "price": 22.90,
+    "screenshot": "img/orange-02.jpg",
+    "produce":"Australia",
+    "availability":true,
+    "shine": 8,
+    "rarity": 7,
+    "color": "#CCC",
+    "faces": 14,
+    "images": [
+      "img/orange-02.jpg",
+      "img/orange-021.jpg",
+      "img/orange-022.jpg"
+    ],
+    "reviews": [{
+      "stars":5,
+      "body":"Always enjoy book",
+      "author":"4123@example.com"
+      }]
+  },
+    {
+    "id":"book04",
+    "name": "World Geography Books",
+    "description": "Learn more when you own the book",
+    "price": 22.90,
+    "screenshot": "img/grape-02.jpg",
+    "produce":"Australia",
+    "availability":true,
+    "shine": 8,
+    "rarity": 7,
+    "color": "#CCC",
+    "faces": 14,
+    "images": [
+      "img/grape-02.jpg",
+      "img/grape-021.jpg",
+      "img/grape-022.jpg"
+    ],
+    "reviews": [{
+      "stars":5,
+      "body":"Always enjoy book",
+      "author":"1233@example.com"
+      }]
+  },
+  {
+    "id":"book05",
+    "name": "Health Books",
+    "description": "Learn more when you own the book",
+    "price": 22.90,
+    "screenshot": "img/grape-03.jpg",
+    "produce":"Australia",
+    "availability":true,
+    "shine": 8,
+    "rarity": 7,
+    "color": "#CCC",
+    "faces": 14,
+    "images":[
+      "img/grape-03.jpg",
+      "img/grape-031.jpg",
+      "img/grape-032.jpg"
+    ],
+    "reviews": [{
+      "stars":5,
+      "body":"Always enjoy book",
+      "author":"1123@example.com"
+      }]
+  },
+  {
+    "id":"book06",
+    "name": "Psychology Books",
+    "description": "Learn more when you own the book",
+    "price": 22.90,
+    "screenshot": "img/orange-03.jpeg",
+    "produce":"Australia",
+    "availability":true,
+    "shine": 8,
+    "rarity": 7,
+    "color": "#CCC",
+    "faces": 14,
+    "images": [
+      "img/orange-03.jpeg",
+      "img/orange-031.jpeg",
+      "img/orange-032.jpeg"
+    ],
+    "reviews": [{
+      "stars":5,
+      "body":"Always enjoy book",
+      "author":"1123@example.com"
+      }]
+  }
+]

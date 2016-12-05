@@ -8,6 +8,10 @@ class LoginController {
 
     $scope.user = {};
 
+    $scope.image = [{
+    src: 'http://www.txstate.edu/.resources/gato-template-txstate2015/images/txst-primary.png',
+	}];
+
 	$scope.SignIn = function(e) {
     e.preventDefault();  // To prevent form refresh
     var username = $scope.user.email;

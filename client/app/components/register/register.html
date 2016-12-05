@@ -1,15 +1,16 @@
 <div class="container">
         <div class="jumbotron" style="text-align: center;padding-bottom: 0px;">
             <h2>Texas State Online Bookstore</h2>
+            <img ng-src={{image[0].src}} width='350px'> </img>
         </div>
-        <form class="form-signin" name="regForm">
+        <form class="form-signin" name="regForm" style="background-color:white;border-radius: 10px;">
         <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
         <label>Email</label>
         <input type="email" name="email" class="form-control" ng-model="user.email">
         <p ng-show="regForm.email.$invalid">Enter a valid email.</p>
         <div class="form-group" ng-class="{ 'has-error' : regForm.password.$invalid }">
         <label>Password</label>
-        <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="8">
+        <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="1">
         <p ng-show="regForm.password.$error.minlength">Min password length is 8 characters.</p>
 
         <div class="form-group" ng-class="{ 'has-error' : regForm.name.$invalid }">

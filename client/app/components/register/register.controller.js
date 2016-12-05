@@ -2,9 +2,13 @@
 
 import firebase from 'firebase';
 
-/* @ngInject */
 class RegisterController {
+    /* @ngInject */
   constructor($scope, $state) {
+    $scope.image = [{
+    src: 'http://www.txstate.edu/.resources/gato-template-txstate2015/images/txst-primary.png',
+    }];
+
     $scope.data = {
     availableOptions: [
       {id: 'visa', name: 'Visa'},
@@ -25,6 +29,9 @@ class RegisterController {
             var billingAddress = $scope.user.billingaddress;
             var name = $scope.user.name;
             if (email && password) {
+                firebase.auth().signOut();
+                console.log(email);
+                console.log(password);
                 firebase.auth().createUserWithEmailAndPassword(email, password)
                     .then(function() {
                         // do things if success
