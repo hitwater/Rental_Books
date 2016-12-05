@@ -1,6 +1,21 @@
+'use strict';
 class BookstoreheaderController {
-  constructor() {
-    this.name = 'bookstoreheader';
+  /* @ngInject */
+  constructor($scope,$state, FirebaseFactory) {
+    $scope.isLoggedIn = function(){
+    	var loggedIn = window.localStorage.getItem('loggedIn');
+    	if(loggedIn){
+    		// var user = FirebaseFactory.auth()
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
+    $scope.logOut = function (){
+    	FirebaseFactory.auth().signOut();
+    	window.localStorage.removeItem('loggedIn');
+    	$state.go('login');
+    }
   }
 }
 

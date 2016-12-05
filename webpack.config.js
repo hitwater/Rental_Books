@@ -5,16 +5,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'source-map',
   entry: {},
-  output: {
-        path: __dirname,
-        filename: './dist/bundle.js'
-    },
   module: {
     loaders: [
        { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
-       { test: /\.html$/, loader: 'raw' },
-       { test: /\.jpg$/, loader: "url-loader?limit=100000" },
-       { test: /\.png$/, loader: "url-loader?limit=100000" },
+       { test: /\.html$/, loader: 'html' },
+       { test: /\.jpg$/, loader: "file-loader" },
+       { test: /\.png$/, loader: "url-loader?mimetype=image/png" },
        { test: /\.styl$/, loader: 'style!css!stylus' },
        { test: /\.css$/, loader: 'style!css' }
     ]

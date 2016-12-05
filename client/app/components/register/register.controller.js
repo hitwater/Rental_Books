@@ -1,10 +1,8 @@
 'use strict';
 
-import firebase from 'firebase';
-
 class RegisterController {
     /* @ngInject */
-  constructor($scope, $state) {
+  constructor($scope, $state, FirebaseFactory) {
     $scope.image = [{
     src: 'http://www.txstate.edu/.resources/gato-template-txstate2015/images/txst-primary.png',
     }];
@@ -29,25 +27,25 @@ class RegisterController {
             var billingAddress = $scope.user.billingaddress;
             var name = $scope.user.name;
             if (email && password) {
-                firebase.auth().signOut();
+                FirebaseFactory.auth().signOut();
                 console.log(email);
                 console.log(password);
-                firebase.auth().createUserWithEmailAndPassword(email, password)
+                FirebaseFactory.auth().createUserWithEmailAndPassword(email, password)
                     .then(function() {
-                        // do things if success
                         console.log('User creation success');
                         console.log($scope.user);
                         console.log($scope);
-                        var messageList = firebase.database().ref('users');
-                        var message = messageList.push();
-                        message.set({
+                        var messageList = FirebaseFactory.database().ref('users');
+                        messageList.set({
+                            email :{
                             'user': email,
                             'password': password,
                             'creditCardType': creditCard,
                             'mailingAddress': mailingaddress,
                             'billingAddress':billingAddress,
                             'name': name
-                        });
+                            }
+                        })
                         $state.go('login');
                     }, function(error) {
                         $scope.regError = true;
