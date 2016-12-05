@@ -4,7 +4,7 @@ import firebase from 'firebase';
 
 /* @ngInject */
 class LoginController {
-    constructor($scope, $state) {
+    constructor($scope, $state, CommonProp) {
 
     $scope.user = {};
 
@@ -24,7 +24,8 @@ class LoginController {
             //window.localStorage.setItem('foo','bar');
             //window.localStorage.getItem('foo');
 				//window.localStorage.removeItem('foo');
-            $state.go('home');
+            CommonProp.setUser(user);
+            $state.go('bookstore');
         }).catch(function(error) {
   	console.log("failed");
 	});
