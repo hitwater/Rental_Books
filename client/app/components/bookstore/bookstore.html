@@ -2,8 +2,8 @@
 <div class="container">
       <div class="jumbotron">
 <p class="text-info">
-    Welcome to this Book Store.<br />
-    In addition, click the book title or image, you can browse the detail of the book.
+    Welcome to the Texas State Online Book Store.<br />
+    You can view all the available books, or you can click on the book title or image to browse the book in detail.
 </p>
 
 <p>
@@ -21,7 +21,7 @@
         </td>
     </tr>
     <tr ng-repeat="product in store.products | orderBy:'name' | filter:search" >
-        <td class="tdCenter FruitThumbnail"><a href="#/products/{{product.id}}" ><img ng-src="{{product.screenshot}}" alt="{{product.name}}" class="img-thumbnail img-responsive" /></a></td>
+        <td class="tdCenter FruitThumbnail"><a href="#/products/{{product.id}}" ><img ng-src="{{product.screenshot}}" alt="{{product.name}}" class="img-thumbnail img-responsive" width='100px'/></a></td>
         <td>
             <a href="#/products/{{product.id}}"><b>{{product.name}}</b></a><br />
             {{product.description}}
