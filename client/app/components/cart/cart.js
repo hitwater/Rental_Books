@@ -8,6 +8,15 @@ let cartModule = angular.module('cart', [
 
 .component('cart', cartComponent)
 
+.config(($stateProvider) => {
+  "ngInject";
+  $stateProvider
+    .state('cart', {
+      url: '/cart',
+      component: 'cart'
+    });
+})
+
 .name;
 
 export default cartModule;

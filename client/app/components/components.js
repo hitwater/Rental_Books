@@ -10,6 +10,7 @@ import FirebaseFactory from './Firebase/Firebase';
 import contactUs from './ContactUs/ContactUs';
 import editUser from './editUser/editUser';
 import help from './help/help';
+import cart from './cart/cart';
 
 let componentModule = angular.module('app.components', [
   Login,
@@ -22,7 +23,8 @@ let componentModule = angular.module('app.components', [
   FirebaseFactory,
   contactUs,
   editUser,
-  help
+  help,
+  cart
 ])
 
 .name;
