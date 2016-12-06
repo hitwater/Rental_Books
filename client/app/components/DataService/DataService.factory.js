@@ -11,15 +11,7 @@ let DataServiceFactory = ["onlineStore",function (onlineStore) {
 
     // save items to local storage when unloading
     var self = this;
-/*
-    $(window).unload(function () {
-        if (self.clearCart) {
-            self.clearItems();
-        }
-        self.saveItems();
-        self.clearCart = false;
-    });
-    */
+
 }
 
 // load items from local storage
@@ -224,27 +216,6 @@ function cartItem(id, name, price, quantity) {
     this.name = name;
     this.price = price * 1;
     this.quantity = quantity * 1;
-}
-function shoppingCart(cartName) {
-    this.cartName = cartName;
-    this.clearCart = false;
-    this.checkoutParameters = {};
-    this.items = [];
-
-    // load items from local storage when initializing
-    // this.loadItems();
-
-    // save items to local storage when unloading
-    var self = this;
-/*
-    $(window).unload(function () {
-        if (self.clearCart) {
-            self.clearItems();
-        }
-        self.saveItems();
-        self.clearCart = false;
-    });
-    */
 }
 
   // create store
