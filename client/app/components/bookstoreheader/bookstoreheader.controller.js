@@ -11,6 +11,10 @@ class BookstoreheaderController {
     		return false;
     	}
     }
+
+    $scope.editUser = function (){
+    	$state.go('editUser');
+    }
     $scope.logOut = function (){
     	FirebaseFactory.auth().signOut();
     	window.localStorage.removeItem('loggedIn');

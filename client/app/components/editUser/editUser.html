@@ -1,9 +1,7 @@
+<bookstoreheader> </bookstoreheader>
 <div class="container">
-        <div class="jumbotron" style="text-align: center;padding-bottom: 0px;">
-            <img src="../../img/txst-primary.png" width='350px'> </img>
-            <h2>Online Bookstore</h2>
-        </div>
-        <form class="form-signin" name="regForm" style="background-color:white;border-radius: 10px;">
+      <div class="jumbotron">
+<form class="form-signin" name="regForm" style="background-color:white;border-radius: 10px;">
         <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
         <label>Email</label>
         <input type="email" name="email" class="form-control" ng-model="user.email">
@@ -44,4 +42,5 @@
         </label>
         <button type="button" ng-click="signUp();" ng-disabled="!user.email || !user.password" class="btn btn-lg btn-primary btn-block">Register</button>
       </form>
+</div>
 </div>
