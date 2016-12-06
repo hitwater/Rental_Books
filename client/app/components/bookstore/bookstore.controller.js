@@ -1,6 +1,5 @@
 'use strict';
 
-
 class BookstoreController {
 	/* @ngInject */
   constructor($scope, DataService, foobar) {
