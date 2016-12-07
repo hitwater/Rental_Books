@@ -1,6 +1,7 @@
 <bookstoreheader> </bookstoreheader>
 <div class="container">
 	<div class="jumbotron">
+		<h3> Texas State Online Bookstore Checkout </h3>
 		<p class="text-info">
 			Thanks for shopping at Texas State Online Bookstore.<br />
 			This is your shopping cart. Here you can edit the items,
@@ -65,22 +66,17 @@
 				<p class="text-info">
 					<a href = "bookstore">
 					<button class="btn btn-block">
-						<span class="glyphicon glyphicon-chevron-left"></span> back to store
+						<span class="glyphicon glyphicon-chevron-left"></span> Back to the Bookstore
 					</button>
 					</a>
 					<button class="btn btn-block btn-danger" ng-click="cart.clearItems()" ng-disabled="cart.getTotalCount() < 1" >
-						<span class="glyphicon glyphicon-trash"></span> clear cart
+						<span class="glyphicon glyphicon-trash"></span> Clear Shopping Cart
 					</button>
 				</p>
 
 				<p class="text-info">
-					<button class="btn btn-block btn-primary" ng-click="cart.checkout('PayPal')" ng-disabled="cart.getTotalCount() < 1">
-						<span class="glyphicon glyphicon-ok"></span> check out using PayPal
-					</button>
-				</p>
-				<p class="text-info">
-					<button class="btn btn-block btn-link" ng-click="cart.checkout('PayPal')" ng-disabled="cart.getTotalCount() < 1" >
-						<img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" alt="checkout PayPal"/>
+					<button class="btn btn-block btn-primary" ng-click="checkout(cart)" ng-disabled="cart.getTotalCount() < 1">
+						<span class="glyphicon glyphicon-ok"></span> Checkout
 					</button>
 				</p>
 			</div>

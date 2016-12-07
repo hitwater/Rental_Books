@@ -1,6 +1,6 @@
-let OnlineStoreServ = ['Product', function(Product){
+let OnlineStoreServ = ['ProductFactory', function(ProductFactory){
 
-      this.products=Product.query();
+      this.products=ProductFactory.query();
       this.getProduct = function (pId) {
         for (var i = 0; i < this.products.length; i++) {
            if (this.products[i].id == pId)

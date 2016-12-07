@@ -2,17 +2,13 @@
 <div class="container">
       <div class="jumbotron">
 
-      <h2 style="text-align: center;padding-bottom: 0px;">Update User Account Information:</h2>
+      <h2 style="text-align: center;padding-bottom: 0px;">Update Account Information:</h2>
 
 <form class="form-signin" name="regForm" style="background-color:white;border-radius: 10px;">
         <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
         <label>Email</label>
-        <input type="email" name="email" class="form-control" ng-model="user.email">
+        <input type="email" name="email" class="form-control" ng-model="user.email" ng-value="no">
         <p ng-show="regForm.email.$invalid">Enter a valid email.</p>
-        <div class="form-group" ng-class="{ 'has-error' : regForm.password.$invalid }">
-        <label>Password</label>
-        <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="1">
-        <p ng-show="regForm.password.$error.minlength">Min password length is 8 characters.</p>
 
         <div class="form-group" ng-class="{ 'has-error' : regForm.name.$invalid }">
         <label>Name</label>
@@ -20,7 +16,7 @@
         <p ng-show="regForm.name.$invalid">Please enter your full name.</p>
 
         <div class="form-group" ng-class="{ 'has-error' : regForm.creditcardnumber.$invalid }">
-        <label>Credit Card</label>
+        <label>Credit Card Numer</label>
         <input type="tet" name="creditcardnumber" class="form-control" ng-model="user.creditcardnumber">
         <p ng-show="regForm.creditcardnumber.$invalid">Please enter a valid credit card.</p>
 
@@ -39,11 +35,7 @@
         <select name="mySelect" id="mySelect"
         ng-options="option.name for option in data.availableOptions track by option.id"
         ng-model="data.selectedOption"></select>
-
-            <label class="checkbox">
-                <a href="/login"> Sign In<a/>
-        </label>
-        <button type="button" ng-click="signUp();" ng-disabled="!user.email || !user.password" class="btn btn-lg btn-primary btn-block">Register</button>
+        <button type="button" ng-click="updateUser();" class="btn btn-lg btn-primary btn-block">Update User</button>
       </form>
       </div>
 </div>

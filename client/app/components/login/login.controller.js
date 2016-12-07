@@ -22,14 +22,12 @@ class LoginController {
     var username = $scope.user.email;
     var password = $scope.user.password;
     FirebaseFactory.auth().signInWithEmailAndPassword(username, password).then(function(user) {
-            // Success callback
-            console.log('Authentication successful');
             //Store in local storage:
             //window.localStorage.setItem('foo','bar');
             //window.localStorage.getItem('foo');
-                //window.localStorage.removeItem('foo');
-            CommonProp.setUser(user);
-            window.localStorage.setItem('loggedIn', true);
+            ////window.localStorage.removeItem('foo');
+            var key = username.replace(".","");
+            window.localStorage.setItem('loggedIn', key);
             $state.go('bookstore');
             return;
         }).catch(function(error) {

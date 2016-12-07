@@ -1,9 +1,18 @@
 import angular from 'angular';
-import ProductFactory from './ProductFactory';
+import ProductComponent from './Product.Component';
 
-let ProductModule = angular.module('Product', [])
+let ProductModule = angular.module('Products', [])
 
-.factory('Product', ProductFactory)
+.component('productComponent', ProductComponent)
+
+.config(($stateProvider) => {
+  "ngInject";
+  $stateProvider
+    .state('product', {
+      url: '/product/:productId',
+      component: 'productComponent'
+    });
+})
 
 .name;
 
