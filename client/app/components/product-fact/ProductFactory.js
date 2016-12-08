@@ -3,7 +3,7 @@ import firebase from 'firebase';
 
 /* @ngInject */
 let ProductFactory = function($resource) {
-    return $resource('https://raw.githubusercontent.com/johnlight/books/2cf8dbcfafab5379c3c598e8b39d5f6d49e8c7bf/:productId.json', {},
+    return $resource('https://raw.githubusercontent.com/johnlight/books/1121be5afc0f010d55158e351561f638443766ce/:productId.json', {},
 		{
 			query: {method:'GET', params:{productId:"productList"}, isArray:true}
 		});

@@ -24,7 +24,7 @@
                 <td class="tdCenter FruitThumbnail"><a ui-sref="product({productId: product.id})" ><img ng-src="{{product.screenshot}}" alt="{{product.name}}" class="img-thumbnail img-responsive" width='100px'/></a></td>
                 <td>
                     <a ui-sref="product({productId: product.id})"><b>{{product.name}}</b></a><br />
-                    {{product.description}}
+                    {{product.shortDescription}}
                 </td>
                 <td class="tdRight">
                     {{product.price | currency}}

@@ -18,10 +18,11 @@
         <h2>{{product.name}}</h2>
         <div class="row">
           <div class="bg-info margin-top-1 col-sm-7">
-            <p class="margin-left-05"><b>Produce: </b> {{product.produce }}</p>
+            <p class="margin-left-05"><b>Publisher: </b> {{product.produce }}</p>
             <p class="margin-left-05"><b>Price: </b> {{product.price | currency }}</p>
           </div>
           <div class="margin-top-1 col-sm-7">
+          <strong>Update Quantity in Cart</strong>
             <div class="input-group">
               <span class="input-group-btn">
                 <button class="btn btn-success" type="button" ng-disabled="cart.getTotalCount(product.id) >= 1000" ng-click="cart.addItem(product.id, product.name, product.price, +1)"><span class="glyphicon glyphicon-plus"></span>
@@ -52,6 +53,10 @@
           </div>
           </div>
       </div>
+      <div class="margin-top-1 col-sm-7">
+  <h4>Description</h4>
+  <blockquote>{{product.description}}</blockquote>
+</div>
     </div>
   </div>
 </div>

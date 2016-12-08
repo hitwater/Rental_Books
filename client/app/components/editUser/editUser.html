@@ -5,11 +5,6 @@
       <h2 style="text-align: center;padding-bottom: 0px;">Update Account Information:</h2>
 
 <form class="form-signin" name="regForm" style="background-color:white;border-radius: 10px;">
-        <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
-        <label>Email</label>
-        <input type="email" name="email" class="form-control" ng-model="user.email" ng-value="no">
-        <p ng-show="regForm.email.$invalid">Enter a valid email.</p>
-
         <div class="form-group" ng-class="{ 'has-error' : regForm.name.$invalid }">
         <label>Name</label>
         <input type="text" name="name" class="form-control" ng-model="user.name">
@@ -35,7 +30,7 @@
         <select name="mySelect" id="mySelect"
         ng-options="option.name for option in data.availableOptions track by option.id"
         ng-model="data.selectedOption"></select>
-        <button type="button" ng-click="updateUser();" class="btn btn-lg btn-primary btn-block">Update User</button>
+        <button type="button" ng-click="updateUser();" class="btn btn-lg btn-primary btn-block">Update Account</button>
       </form>
       </div>
 </div>

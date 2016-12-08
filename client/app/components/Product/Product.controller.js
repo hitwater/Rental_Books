@@ -7,6 +7,7 @@ class ProductController {
 		$scope.cart = DataService.cart;
 		$scope.store.name = "Tom";
 		var product = DataService.store.getProduct($stateParams.productId);
+		$scope.productId = $stateParams.productId;
 		$scope.product = product;
 		$scope.updateCart = function(productId){
 			return DataService.cart.getTotalCount(productId);
@@ -14,6 +15,9 @@ class ProductController {
 		if($stateParams.productId) {
 			$scope.cart.getTotalPriceForBook =  DataService.cart.getTotalCount($stateParams.productId);
 		}
+		$scope.$watch('store', function(newValue, oldValue, scope) {
+			scope.product = newValue.getProduct(scope.productId);
+		}, true);
 	}
 }
 

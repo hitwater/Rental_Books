@@ -1,4 +1,5 @@
 'use strict';
+
 class EditUserController {
 	/* @ngInject */
 	constructor($scope, $state, FirebaseFactory) {
@@ -38,14 +39,13 @@ name: user.name
 
 
 		$scope.updateUser = function (){
-			var email = $scope.user.email;
 		var creditCard = $scope.data.selectedOption;
 		var mailingaddress = $scope.user.mailingaddress;
 		var billingAddress = $scope.user.billingaddress;
 		var name = $scope.user.name;
 		var creditcardnumber = $scope.user.creditcardnumber;
 		var messageList = FirebaseFactory.database().ref(ref);
-				messageList.set({'user': email,
+				messageList.set({
 						'creditCardType': creditCard,
 						'mailingAddress': mailingaddress,
 						'billingAddress':billingAddress,
