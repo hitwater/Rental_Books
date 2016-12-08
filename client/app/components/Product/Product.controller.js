@@ -8,7 +8,6 @@ class ProductController {
 		$scope.store.name = "Tom";
 		var product = DataService.store.getProduct($stateParams.productId);
 		$scope.product = product;
-		console.log(product);
 		$scope.updateCart = function(productId){
 			return DataService.cart.getTotalCount(productId);
 		}

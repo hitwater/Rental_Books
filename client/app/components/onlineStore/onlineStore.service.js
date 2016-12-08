@@ -1,6 +1,13 @@
+'use strict';
+
+/* @ngInject */
 let OnlineStoreServ = ['ProductFactory', function(ProductFactory){
 
-      this.products=ProductFactory.query();
+       var product = ProductFactory.query();//This is a promise.
+      // product.$promise.then(function(ok){
+
+      // });
+      this.products = product;
       this.getProduct = function (pId) {
         for (var i = 0; i < this.products.length; i++) {
            if (this.products[i].id == pId)
