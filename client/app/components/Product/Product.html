@@ -1,0 +1,62 @@
+<bookstoreheader> </bookstoreheader>
+<div class="container">
+  <div class="jumbotron">
+    <div class="row clearfix">
+      <div class="col-sm-6 pull-left">
+        <!--  Product Container  -->
+        <!-- Image Gallery  -->
+        <div>
+          <img ng-src="{{product.images[gallery.current]}}" class="img-responsive"/>
+        </div>
+        <ul class="list-inline">
+          <li ng-repeat="image in product.images" >
+            <a href ng-click="gallery.setCurrent($index)" class="FruitThumbnail"><img ng-src="{{image}}" class="img-thumbnail img-responsive" /></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-6 pull-left">
+        <h2>{{product.name}}</h2>
+        <div class="row">
+          <div class="bg-info margin-top-1 col-sm-7">
+            <p class="margin-left-05"><b>Publisher: </b> {{product.produce }}</p>
+            <p class="margin-left-05"><b>Price: </b> {{product.price | currency }}</p>
+          </div>
+          <div class="margin-top-1 col-sm-7">
+          <strong>Update Quantity in Cart</strong>
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-success" type="button" ng-disabled="cart.getTotalCount(product.id) >= 1000" ng-click="cart.addItem(product.id, product.name, product.price, +1)"><span class="glyphicon glyphicon-plus"></span>
+                </button>
+              </span>
+              <input type="number" ng-model="cart.getTotalCount(product.id)"
+              class="form-control" style="text-align: center">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-disabled="cart.getTotalCount({{product.id}}) <= 1" ng-click="cart.addItem(product.id, product.name, product.price, -1)"><span class="glyphicon glyphicon-minus"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+
+          <div class="margin-top-1 col-sm-7">
+            <a ui-sref="cart" title="go to shopping cart">
+              <button class="btn btn-block btn-success" ng-disabled="cart.getTotalCount() < 1">
+                <span class="glyphicon glyphicon-shopping-cart"></span> Go to Cart
+              </button>
+            </a>
+          </div>
+          <div class="margin-top-1 col-sm-7">
+            <a ui-sref="bookstore">
+              <button class="btn btn-block btn-default">
+                <span class="glyphicon glyphicon-chevron-left"></span> Back to the bookstore
+              </button>
+            </a>
+          </div>
+          </div>
+      </div>
+      <div class="margin-top-1 col-sm-7">
+  <h4>Description</h4>
+  <blockquote>{{product.description}}</blockquote>
+</div>
+    </div>
+  </div>
+</div>

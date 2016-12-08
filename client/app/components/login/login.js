@@ -1,12 +1,9 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 import loginComponent from './login.component';
 
 'use strict';
- 
+
 
 let loginModule = angular.module('login', [
-  uiRouter
 ])
 
 .config(($stateProvider, $urlRouterProvider) => {

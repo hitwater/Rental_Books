@@ -1,0 +1,37 @@
+<bookstoreheader> </bookstoreheader>
+<div class="container">
+      <div class="jumbotron">
+
+      <h2 style="text-align: center;padding-bottom: 0px;">Update Account Information:</h2>
+
+<form class="form-signin" name="regForm" style="background-color:white;border-radius: 10px;">
+        <div class="form-group" ng-class="{ 'has-error' : regForm.name.$invalid }">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control" ng-model="user.name">
+        <p ng-show="regForm.name.$invalid">Please enter your full name.</p>
+
+        <div class="form-group" ng-class="{ 'has-error' : regForm.creditcardnumber.$invalid }">
+        <label>Credit Card Numer</label>
+        <input type="tet" name="creditcardnumber" class="form-control" ng-model="user.creditcardnumber">
+        <p ng-show="regForm.creditcardnumber.$invalid">Please enter a valid credit card.</p>
+
+        <div class="form-group" ng-class="{ 'has-error' : regForm.mailaddress.$invalid }">
+        <label>Mailing Address</label>
+        <input type="text" name="mailaddress" class="form-control" ng-model="user.mailingaddress">
+        <p ng-show="regForm.mailaddress.$invalid">Please enter a mailing address.</p>
+
+        <div class="form-group" ng-class="{ 'has-error' : regForm.billingaddress.$invalid }">
+        <label>Billing Address</label>
+        <input type="text" name="billingaddress" class="form-control" ng-model="user.billingaddress">
+        <p ng-show="regForm.billingaddress.$invalid">Please enter a billing address.</p>
+
+        <p style="color:red;" ng-show="regError">{{regErrorMessage}}</p>
+        <label for="mySelect">Select a Credit Card type:</label>
+        <select name="mySelect" id="mySelect"
+        ng-options="option.name for option in data.availableOptions track by option.id"
+        ng-model="data.selectedOption"></select>
+        <button type="button" ng-click="updateUser();" class="btn btn-lg btn-primary btn-block">Update Account</button>
+      </form>
+      </div>
+</div>
+</div>

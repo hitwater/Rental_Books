@@ -1,5 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import uiBootstrap from 'angular-ui-bootstrap'
+import ngResource from 'angular-resource';
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
@@ -9,13 +11,16 @@ import 'normalize.css';
 angular.module('app', [
     uiRouter,
     Common,
-    Components
+    Components,
+    ngResource,
+    uiBootstrap
   ])
+
   .config(($locationProvider) => {
     "ngInject";
     // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
     // #how-to-configure-your-server-to-work-with-html5mode
-    $locationProvider.html5Mode(true).hashPrefix('!');
+    // $locationProvider.html5Mode(true).hashPrefix('!');
     var config = {
       apiKey: "AIzaSyDbWVEW9A4NKF85unGhutdEcOBVJ1gfwls",
       authDomain: "bookstore-a15da.firebaseapp.com",
@@ -26,39 +31,24 @@ angular.module('app', [
     firebase.initializeApp(config);
   })
 
-  .service('onlineStore', ['Product', function(Product){
+  .value('foo', 'foo')
 
-      this.products=Product.query();
+  .service('CommonProp', function() {
+    var user = '';
 
-      this.getProduct = function (pId) {
-        for (var i = 0; i < this.products.length; i++) {
-           if (this.products[i].id == pId)
-              return this.products[i];
-        }
-        return null;
-      };
-
-  }])
-
-  .factory("DataService", ["onlineStore",function (onlineStore) {
-    // create store
-    var myStore = onlineStore;
-
-    // create shopping cart
-    var myCart = new shoppingCart("AngularStore");
-
-    // enable PayPal checkout
-    // note: the second parameter identifies the merchant; in order to use the
-    // shopping cart with PayPal, you have to create a merchant account with
-    // PayPal. You can do that here:
-    // https://www.paypal.com/webapps/mpp/merchant
-    myCart.addCheckoutParameters("PayPal", "paypaluser@youremail.com");
-
-    // return data object with store and cart
     return {
-        store: myStore,
-        cart: myCart
+        getUser: function() {
+            return user;
+        },
+        setUser: function(value) {
+            user = value;
+        }
     };
-  }])
+	})
+  .factory('foobar', function(){
+    return 'foo';
+  })
+
+
 
   .component('app', AppComponent);
