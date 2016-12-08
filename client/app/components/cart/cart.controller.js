@@ -2,22 +2,18 @@
 
 class CartController {
 	/* @ngInject */
-	constructor($scope, DataService) {
+	constructor($scope, $state, DataService, FirebaseFactory) {
 		$scope.store = DataService.store;
 		$scope.cart = DataService.cart;
 		$scope.store.name = "Tom";
-		$scope.signUp = function (cart) {
+		$scope.checkout = function (cart) {
 			var messageList = FirebaseFactory.database().ref('purchased');
-			messageList.set({
-				email :{
-					'user': email,
-					'password': password,
-					'creditCardType': creditCard,
-					'mailingAddress': mailingaddress,
-					'billingAddress':billingAddress,
-					'name': name
-				}
-			})
+			var cleanCart = angular.copy(cart);
+			var newPostRef = messageList.push({
+				'cart': cleanCart
+			});
+			cart.clearItems();
+			$state.go('checkout',{orderConfirmation: newPostRef.key})
 		}
 	}
 }

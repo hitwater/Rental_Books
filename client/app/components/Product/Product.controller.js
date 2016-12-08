@@ -5,9 +5,15 @@ class ProductController {
 	constructor($scope, $state, $stateParams, DataService) {
 		$scope.store = DataService.store;
 		$scope.cart = DataService.cart;
-		$scope.product = $scope.store.getProduct($stateParams.productId);
+		$scope.store.name = "Tom";
+		var product = DataService.store.getProduct($stateParams.productId);
+		$scope.product = product;
+		console.log(product);
+		$scope.updateCart = function(productId){
+			return DataService.cart.getTotalCount(productId);
+		}
 		if($stateParams.productId) {
-			$scope.cart.getTotalPriceForBook =  $scope.cart.getTotalCount($scope.product);
+			$scope.cart.getTotalPriceForBook =  DataService.cart.getTotalCount($stateParams.productId);
 		}
 	}
 }

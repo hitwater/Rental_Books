@@ -12,6 +12,7 @@ import editUser from './editUser/editUser';
 import help from './help/help';
 import cart from './cart/cart';
 import productFact from './product-fact/product-fact'
+import checkout from './checkout/checkout'
 
 let componentModule = angular.module('app.components', [
   Login,
@@ -26,7 +27,8 @@ let componentModule = angular.module('app.components', [
   editUser,
   help,
   cart,
-  productFact
+  productFact,
+  checkout
 ])
 
 .name;
