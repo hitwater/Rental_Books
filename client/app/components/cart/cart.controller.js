@@ -7,7 +7,7 @@ class CartController {
 		$scope.cart = DataService.cart;
 		$scope.store.name = "Tom";
 		$scope.signUp = function (cart) {
-			var messageList = FirebaseFactory.database().ref('bookstore');
+			var messageList = FirebaseFactory.database().ref('purchased');
 			messageList.set({
 				email :{
 					'user': email,

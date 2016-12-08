@@ -21,6 +21,7 @@ class RegisterController {
 $scope.signUp = function (){
 	if(!$scope.regForm.$invalid){
 		var email = $scope.user.email;
+		var password = $scope.user.password;
 		var creditCard = $scope.data.selectedOption;
 		var mailingaddress = $scope.user.mailingaddress;
 		var billingAddress = $scope.user.billingaddress;
