@@ -7,7 +7,7 @@ class DBFuncs
 	function DBFuncs()
 	{
 		DEFINE ('DB_USER', 'root');
-		DEFINE ('DB_PASSWORD', '*****');
+		DEFINE ('DB_PASSWORD', 'water11014327');
 		DEFINE ('DB_HOST', 'localhost');
 		DEFINE ('DB_NAME', 'shopping');
 		$conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)
@@ -63,12 +63,19 @@ class DBFuncs
 	function addOrder($custid, $items, $billInfo, $shipInfo)
 	{
 		$custid = mysql_real_escape_string($custid);
-
-		$sql = "INSERT INTO `shopping`.`Orders` (`CustomerID`, `OrderDate`, `ShipName`,
-				`ShipEmail`, `ShipPhone`, `ShipAddress`, `ShipCity`, `ShipCountry`, `ShipPostalCode`, `ShipState`) VALUES
-				(".$custid.", '$shipInfo[OrderDate]', '".mysql_real_escape_string($shipInfo[ShipName])."', '".mysql_real_escape_string($shipInfo[ShipEmail])."',
-						'".mysql_real_escape_string($shipInfo[ShipPhone])."', '".mysql_real_escape_string($shipInfo[ShipAddress])."', '".mysql_real_escape_string($shipInfo[ShipCity])."',
-								'".mysql_real_escape_string($shipInfo[ShipCountry])."', ".mysql_real_escape_string($shipInfo[ShipPostalCode]).", '".mysql_real_escape_string($shipInfo[ShipState])."')";
+		$sql = "INSERT INTO `shopping`.`orders` (`CustomerID`, `OrderDate`, `ShipName`,
+				`ShipEmail`, `ShipPhone`, `ShipAddress`, `ShipCity`, `ShipCountry`, `ShipPostalCode`, 
+				`ShipState`) VALUES
+				('".mysql_real_escape_string($custid)."', 
+				  '".mysql_real_escape_string($shipInfo[OrderDate])."', 
+						'".mysql_real_escape_string($shipInfo[ShipName])."', 
+						'".mysql_real_escape_string($shipInfo[ShipEmail])."',
+						'".mysql_real_escape_string($shipInfo[ShipPhone])."', 
+						'".mysql_real_escape_string($shipInfo[ShipAddress])."', 
+						'".mysql_real_escape_string($shipInfo[ShipCity])."',
+						'".mysql_real_escape_string($shipInfo[ShipCountry])."', 
+						'".mysql_real_escape_string($shipInfo[ShipPostalCode])."',
+						'".mysql_real_escape_string($shipInfo[ShipState])."')";
 		$this->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 
 		$orderID = mysql_insert_id();
@@ -77,7 +84,7 @@ class DBFuncs
 		$sql = "UPDATE `shopping`.`Customers` SET `LastName` = '".mysql_real_escape_string($billInfo[LastName])."', `FirstName` = '".mysql_real_escape_string($billInfo[FirstName])."',
 				`PhoneNo` = '".mysql_real_escape_string($billInfo[PhoneNo])."', `Address` = '".mysql_real_escape_string($billInfo[Address])."',
 						`City` = '".mysql_real_escape_string($billInfo[City])."', `Country` = '".mysql_real_escape_string($billInfo[Country])."',
-								`PostalCode` = '".mysql_real_escape_string($billInfo[PostalCode])."' WHERE `CustomerID` = '$custid'";
+								`PostalCode` = '".mysql_real_escape_string($billInfo[PostalCode])."' WHERE `E-mail` = '$custid'";
 		$this->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 
 
@@ -106,7 +113,7 @@ class DBFuncs
 	function getAllProducts()
 	{
 
-		$sql = "SELECT `ProductID`,`ProductName`, `ProductDesc`, `UnitsInStock`, `Image`, `UnitPrice` FROM `shopping`.`Products`";
+		$sql = "SELECT `ProductID`,`UnitsInStock`,`ProductDesc`,`ProductName`, `Image`, `UnitPrice` FROM `shopping`.`Products`";
 		$rs = $this->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 		return $rs;
 	}
@@ -114,7 +121,7 @@ class DBFuncs
 	function getOneProduct($prodID)
 	{
 
-		$sql = "SELECT `ProductID`, `ProductName`, `ProductDesc`, `UnitsInStock`, `Image`, `UnitPrice`, `Featured` FROM `shopping`.`Products` WHERE `ProductID` = ".$prodID."";
+		$sql = "SELECT `ProductID`, `UnitsInStock`,`ProductDesc`,`ProductName`, `Image`, `UnitPrice`, `Featured` FROM `shopping`.`Products` WHERE `ProductID` = '$prodID'";
 		$rs = $this->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 		return mysql_fetch_array($rs);
 	}
@@ -128,8 +135,8 @@ class DBFuncs
 		$image = mysql_real_escape_string($productArr[4]);
 		$featured = mysql_real_escape_string($productArr[5]);
 
-		$sql = "INSERT INTO `shopping`.`Products` (`ProductName`, `ProductDesc`, `UnitPrice`, `UnitsInStock`, `Image`, `Featured`)
-				VALUES ('".$name."', '".$desc."', '".$price."', '".$units."', '".$image."', '".$featured."')";
+		$sql = "INSERT INTO `shopping`.`Products` ( `UnitsInStock`,`ProductDesc`, `ProductName`, `Image`,`UnitPrice`,  `Featured`)
+				VALUES ('".$price."', '".$desc."', '".$name."', '".$image."','".$units."', '".$featured."')";
 
 		$this->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 
