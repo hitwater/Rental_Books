@@ -7,8 +7,10 @@ include_once('global.php');
 include_once('layout.php');
 
 
-$cart = $_SESSION['cart'];
-$action = $_GET['action'];
+//$cart = $_SESSION['cart'];
+$cart =(isset($_GET['cart']) ? $_GET['cart'] : null);
+$action = (isset($_GET['action']) ? $_GET['action'] : null);
+$newcart=(isset($_GET['newcart']) ? $_GET['newcart'] : null);
 $added = true;
 switch ($action) {
 	case 'add':
